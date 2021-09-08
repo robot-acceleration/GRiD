@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-from URDFParser import URDFParser
-from GRiDCodeGenerator import GRiDCodeGenerator
-from util import parseInputs, printUsage, validateRobot
+from .URDFParser import URDFParser
+from .GRiDCodeGenerator import GRiDCodeGenerator
+from .util import parseInputs, printUsage, validateRobot
 
 def main():
     URDF_PATH, DEBUG_MODE = parseInputs()
@@ -15,4 +15,5 @@ def main():
     codegen.gen_all_code()
     print("New code generated and saved to grid.cuh!")
 
-main()
+if __name__ == "__main__":
+    main()

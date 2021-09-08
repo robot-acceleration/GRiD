@@ -1,4 +1,5 @@
-from .GRiD import generateGRiD
-from .GRiD import printGRiD
-from .GRiD import printReferenceValues
-from .GRiD import testGRiDRefactorings
+__all__ = ["GRiDCodeGenerator", "RBDReference", "URDFPArser", "util"]
+from . import generateGRiD
+from . import printGRiD
+from . import printReferenceValues
+from . import testGRiDRefactorings

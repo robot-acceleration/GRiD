@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-from URDFParser import URDFParser
-from RBDReference import RBDReference
-from GRiDCodeGenerator import GRiDCodeGenerator
-from util import parseInputs, printUsage, validateRobot, initializeValues, printErr
+from .URDFParser import URDFParser
+from .RBDReference import RBDReference
+from .GRiDCodeGenerator import GRiDCodeGenerator
+from .util import parseInputs, printUsage, validateRobot, initializeValues, printErr
 import copy
 
 def main():
@@ -100,4 +100,5 @@ def main():
     print("dc/dqd")
     printErr(dc_dqd,dc_dqd2,DEBUG_MODE)
 
-main()
+if __name__ == "__main__":
+    main()

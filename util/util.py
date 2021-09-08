@@ -10,26 +10,28 @@ def printUsage(NO_ARG_OPTION = False):
     if NO_ARG_OPTION:
         print("Alternative usage assuming grid.cuh is already generated: script.py")
 
+def fileExists(FILE_PATH):
+    return pathlib.Path(FILE_PATH).is_file()
+
+def validateFile(FILE_PATH, NO_ARG_OPTION = False):
+    if not fileExists(FILE_PATH):
+        print("[!Error] grid.cuh does not exist")
+        printUsage(NO_ARG_OPTION)
+        exit()
+
 def parseInputs(NO_ARG_OPTION = False):
     args = sys.argv[1:]
     if len(args) == 0:
         if NO_ARG_OPTION:
-            if not pathlib.Path("grid.cuh").is_file():
-                print("[!Error] grid.cuh does not exist")
-                printUsage(NO_ARG_OPTION)
-                exit()
-            else:
-                print("Using generated grid.cuh")
-                return None
+            validateFile("grid.cuh", NO_ARG_OPTION)
+            print("Using generated grid.cuh")
+            return None
         print("[!Error] No URDF filepath specified")
         printUsage(NO_ARG_OPTION)
         exit()
     
     URDF_PATH = args[0]
-    if not pathlib.Path(URDF_PATH).is_file():
-        print("[!Error] Not a valid file location: " + URDF_PATH)
-        printUsage(NO_ARG_OPTION)
-        exit()
+    validateFile(URDF_PATH, NO_ARG_OPTION)
 
     DEBUG_MODE = True if len(args) > 1 and ((args[1] == "-D") or (args[1] == "-d")) else False
 
