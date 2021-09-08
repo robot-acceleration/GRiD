@@ -17,7 +17,8 @@ Running the CUDA C++ code output by the GRiDCodegenerator also requires CUDA to 
 + To generate the ```grid.cuh``` header file please run: ```generateGRiD.py PATH_TO_URDF (-D)``` where ```-D``` indicates full debug mode which will include print statements after ever step of ever algorithm
 + To test the python refactored algorithms against our reference implmentations please run ```testGRiDRefactorings.py PATH_TO_URDF (-D)``` where ```-D``` prints extra debug values as compared to just the comparisons
 + To print and compare GRiD to reference values please do the following steps: 
-  1) Print the reference values by running ```printReferenceValues.py PATH_TO_URDF (-D)``` where ```-D``` prints the full debug reference values from the refactorings 2) Run ```printGrid.py PATH_TO_URDF (-D)``` to compile, run, and print the same values from CUDA C++
+  1) Print the reference values by running ```printReferenceValues.py PATH_TO_URDF (-D)``` where ```-D``` prints the full debug reference values from the refactorings 
+  2) Run ```printGrid.py PATH_TO_URDF (-D)``` to compile, run, and print the same values from CUDA C++
 
 ## CUDA Instalation Instructions
 ### Install dependencies
