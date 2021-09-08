@@ -1,0 +1,4 @@
+numpy >= 1.17.4
+sympy >= 1.7.1
+beautifulsoup4 >= 4.9.3
+lxml >= 4.2.1

@@ -1,0 +1,9 @@
+[submodule "RBDReference"]
+	path = RBDReference
+	url = git@github.com:robot-acceleration/RBDReference.git
+[submodule "GRiDCodeGenerator"]
+	path = GRiDCodeGenerator
+	url = git@github.com:robot-acceleration/GRiDCodeGenerator.git
+[submodule "URDFParser"]
+	path = URDFParser
+	url = git@github.com:robot-acceleration/URDFParser.git
