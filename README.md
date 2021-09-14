@@ -25,7 +25,7 @@ To enable GRiD to be used by both expert and novice GPU programmers we provide t
 + ```ALGORITHM```: a host function that wraps the ```_kernel``` and handles the transfer of inputs to the GPU and the results back to the CPU.
 
 ## Citing GRiD
-To cite GRiD in your research, please use the following bibtex:
+To cite GRiD in your research, please use the following bibtex for our paper ["GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients"](https://brianplancher.com/publication/GRiD/):
 ```
 @misc{plancher2021GRiD,
   author={B. {Plancher} and S. M. {Neuman} and R. {Ghosal} and S. {Kuindersma} and V. {Janapa Reddi}},
@@ -40,7 +40,7 @@ When performing multiple computations of rigid body dynamics algorithms, GRiD pr
 
 ![Latency (including GPU I/O overhead) for N = 16, 32, 64, 128, and 256 computations of the gradient of forward dynamics for both the Pinocchio CPU baseline and the GRiD GPU library for various robot models (IIWA, HyQ, and Atlas). Overlayed is the speedup (or slowdown) of GRiD as compared to Pinocchio both in terms of pure computation and including I/O overhead.](imgs/benchmark_multi_fd_grad.png)
 
-To learn more about GRiD's performance results and to run your own benchmark analysis of GRiD's performance please check out our [GRiDBenchmarks](https://github.com/robot-acceleration/GRiDBenchmarks) repository.
+To learn more about GRiD's performance results and to run your own benchmark analysis of GRiD's performance please check out our [GRiDBenchmarks](https://github.com/robot-acceleration/GRiDBenchmarks) repository and our [paper](https://brianplancher.com/publication/GRiD/).
 
 ## Instalation Instructions:
 ### Install Python Dependencies
