@@ -1,17 +1,46 @@
 # GRiD
 
-A GPU accelerated library for computing rigid body dynamics with analytical gradients.
+A GPU-accelerated library for computing rigid body dynamics with analytical gradients.
 
 GRiD wraps our [URDFParser](https://github.com/robot-acceleration/URDFParser), [GRiDCodeGenerator](https://github.com/robot-acceleration/GRiDCodeGenerator), and [RBDReference](https://github.com/robot-acceleration/RBDReference) packages. Using its scripts, users can easily generate and test optimized rigid body dynamics CUDA C++ code for their URDF files.
 
+![The GRiD library package ecosystem, showing how a user's URDF file can be transformed into optimized CUDA C++ code which can then be validated against reference outputs and benchmarked for performance.](imgs/GRiD.png)
+
+For additional information and links to our paper on this work, check out our [project website](https://brianplancher.com/publication/GRiD).
+
 **This package contains submodules make sure to run ```git submodule update --init --recursive```** after cloning!
 
-## Usage and API:
+## Usage:
 + To generate the ```grid.cuh``` header file please run: ```generateGRiD.py PATH_TO_URDF (-D)``` where ```-D``` indicates full debug mode which will include print statements after ever step of ever algorithm
 + To test the python refactored algorithms against our reference implmentations please run ```testGRiDRefactorings.py PATH_TO_URDF (-D)``` where ```-D``` prints extra debug values as compared to just the comparisons
 + To print and compare GRiD to reference values please do the following steps: 
   1) Print the reference values by running ```printReferenceValues.py PATH_TO_URDF (-D)``` where ```-D``` prints the full debug reference values from the refactorings 
   2) Run ```printGrid.py PATH_TO_URDF (-D)``` to compile, run, and print the same values from CUDA C++
+
+## C++ API
+To enable GRiD to be used by both expert and novice GPU programmers we provide the following API interface for each rigid body dynamics algorithm:
++ ```ALGORITHM_inner```: a device function that computes the core computation. These functions assume that inputs are already loaded into GPU shared memory, require a pointer to additional scratch shared memory, and store the result back in shared memory.
++ ```ALGORITHM_device```: a device function that handles the shared memory allocation for the ```\_inner``` function. These functions assume that inputs are already loaded into, and return results to, GPU shared memory.
++ ```ALGORITHM_kernel```: a kernel that handles the shared memory allocation for the ```\_inner``` function. These functions assume that inputs are loaded into, and return results to, the global GPU memory.
++ ```ALGORITHM```: a host function that wraps the ```_kernel``` and handles the transfer of inputs to the GPU and the results back to the CPU.
+
+## Citing GRiD
+To cite GRiD in your research, please use the following bibtex:
+```
+@misc{plancher2021GRiD,
+  author={B. {Plancher} and S. M. {Neuman} and R. {Ghosal} and S. {Kuindersma} and V. {Janapa Reddi}},
+  title={GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients},
+  year={2021},
+  archivePrefix={arXiv}
+}
+```
+
+## Performance
+When performing multiple computations of rigid body dynamics algorithms, GRiD provides as much as a 7.6x speedup over a state-of-the-art, multi-threaded CPU implementation, and maintains as much as a 2.6x speedup when accounting for I/O overhead. 
+
+![Latency (including GPU I/O overhead) for N = 16, 32, 64, 128, and 256 computations of the gradient of forward dynamics for both the Pinocchio CPU baseline and the GRiD GPU library for various robot models (IIWA, HyQ, and Atlas). Overlayed is the speedup (or slowdown) of GRiD as compared to Pinocchio both in terms of pure computation and including I/O overhead.](imgs/benchmark_multi_fd_grad.png)
+
+To learn more about GRiD's performance results and to run your own benchmark analysis of GRiD's performance please check out our [GRiDBenchmarks](https://github.com/robot-acceleration/GRiDBenchmarks) repository.
 
 ## Instalation Instructions:
 ### Install Python Dependencies
