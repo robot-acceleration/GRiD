@@ -4,11 +4,11 @@ A GPU-accelerated library for computing rigid body dynamics with analytical grad
 
 GRiD wraps our [URDFParser](https://github.com/robot-acceleration/URDFParser), [GRiDCodeGenerator](https://github.com/robot-acceleration/GRiDCodeGenerator), and [RBDReference](https://github.com/robot-acceleration/RBDReference) packages. Using its scripts, users can easily generate and test optimized rigid body dynamics CUDA C++ code for their URDF files.
 
-![The GRiD library package ecosystem, showing how a user's URDF file can be transformed into optimized CUDA C++ code which can then be validated against reference outputs and benchmarked for performance.](imgs/GRiD.png)
-
 For additional information and links to our paper on this work, check out our [project website](https://brianplancher.com/publication/GRiD).
 
 **This package contains submodules make sure to run ```git submodule update --init --recursive```** after cloning!
+
+![The GRiD library package ecosystem, showing how a user's URDF file can be transformed into optimized CUDA C++ code which can then be validated against reference outputs and benchmarked for performance.](imgs/GRiD.png)
 
 ## Usage:
 + To generate the ```grid.cuh``` header file please run: ```generateGRiD.py PATH_TO_URDF (-D)``` where ```-D``` indicates full debug mode which will include print statements after ever step of ever algorithm
