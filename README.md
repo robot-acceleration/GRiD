@@ -18,7 +18,7 @@ For additional information and links to our paper on this work, check out our [p
   2) Run ```printGrid.py PATH_TO_URDF (-D)``` to compile, run, and print the same values from CUDA C++
 
 ## Current Support
-GRiD currently fully supports any robot model consisting of revolute, prismatic, and fixed joints.
+GRiD currently fully supports any robot model consisting of revolute, prismatic, and fixed joints that does not have closed kinematic loops.
 
 GRiD currently implements the following rigid body dynamics algorithms:
 + Inverse Dynamics via the Recursive Newton Euler Algorithm (RNEA) from [Featherstone](https://link.springer.com/book/10.1007/978-1-4899-7560-7)
