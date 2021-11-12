@@ -5,7 +5,7 @@ import numpy as np
 np.set_printoptions(precision=4, suppress=True, linewidth = 100)
 
 def printUsage(NO_ARG_OPTION = False):
-    print("Usage is: script.py PATH_TO_URDF (-D)")
+    print("Usage is: script.py PATH_TO_URDF (FILE_NAMESPACE_NAME) (-D)")
     print("                    where -D indicates full debug mode")
     if NO_ARG_OPTION:
         print("Alternative usage assuming grid.cuh is already generated: script.py")
@@ -33,12 +33,22 @@ def parseInputs(NO_ARG_OPTION = False):
     URDF_PATH = args[0]
     validateFile(URDF_PATH, NO_ARG_OPTION)
 
-    DEBUG_MODE = True if len(args) > 1 and ((args[1] == "-D") or (args[1] == "-d")) else False
+    DEBUG_MODE_1 = True if len(args) > 1 and ((args[1] == "-D") or (args[1] == "-d")) else False
+    DEBUG_MODE_2 = True if len(args) > 2 and ((args[2] == "-D") or (args[2] == "-d")) else False
+    DEBUG_MODE = DEBUG_MODE_1 or DEBUG_MODE_2
+
+    if len(args) > 2:
+        FILE_NAMESPACE_NAME = args[1] if DEBUG_MODE_2 else args[2]
+    elif len(args) > 1 and not DEBUG_MODE_1:
+        FILE_NAMESPACE_NAME = args[1]
+    else:
+        FILE_NAMESPACE_NAME = "grid"
 
     print("Running with: DEBUG_MODE = " + str(DEBUG_MODE))
     print("                    URDF = " + URDF_PATH)
+    print("                    NAME = " + FILE_NAMESPACE_NAME)
 
-    return (URDF_PATH, DEBUG_MODE)
+    return (URDF_PATH, DEBUG_MODE, FILE_NAMESPACE_NAME)
 
 def validateRobot(robot, NO_ARG_OPTION = False):
     if robot == None:

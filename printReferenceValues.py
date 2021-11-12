@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-from .URDFParser import URDFParser
-from .RBDReference import RBDReference
-from .GRiDCodeGenerator import GRiDCodeGenerator
-from .util import parseInputs, printUsage, validateRobot, initializeValues, printErr
+from URDFParser import URDFParser
+from RBDReference import RBDReference
+from GRiDCodeGenerator import GRiDCodeGenerator
+from util import parseInputs, printUsage, validateRobot, initializeValues, printErr
 import numpy as np
 
 def main():
-    URDF_PATH, DEBUG_MODE = parseInputs()
+    URDF_PATH, DEBUG_MODE, FILE_NAMESPACE_NAME = parseInputs()
 
     parser = URDFParser()
     robot = parser.parse(URDF_PATH)
@@ -51,7 +51,7 @@ def main():
         print("-------------------")
         print("printing intermediate outputs from refactorings")
         print("-------------------")
-        codegen = GRiDCodeGenerator(robot, DEBUG_MODE)
+        codegen = GRiDCodeGenerator(robot, DEBUG_MODE, FILE_NAMESPACE = FILE_NAMESPACE_NAME)
         (c, v, a, f) = codegen.test_rnea(q,qd)
         print("v")
         print(v)
