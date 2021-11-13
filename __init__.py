@@ -1,5 +1,1 @@
-__all__ = ["GRiDCodeGenerator", "RBDReference", "URDFPArser", "util"]
-from . import generateGRiD
-from . import printGRiD
-from . import printReferenceValues
-from . import testGRiDRefactorings
+__all__ = ["GRiDCodeGenerator", "RBDReference", "URDFParser", "util", "generateGRiD", "printGRiD", "printReferenceValues", "testGRiDRefactorings"]
