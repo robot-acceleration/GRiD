@@ -28,8 +28,8 @@ def main():
     printErr(f,f2,DEBUG_MODE)
 
     print("rnea bpass err")
-    (c, fbp) = codegen.test_rnea_bpass(q,f)
-    (c2, fbp2) = reference.rnea_bpass(q,f2)
+    (c, fbp) = codegen.test_rnea_bpass(q,qd,f)
+    (c2, fbp2) = reference.rnea_bpass(q,qd,f2)
     print("fbp")
     printErr(fbp,fbp2,DEBUG_MODE)
     print("c")
