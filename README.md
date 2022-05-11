@@ -37,7 +37,7 @@ To enable GRiD to be used by both expert and novice GPU programmers we provide t
 + ```ALGORITHM```: a host function that wraps the ```_kernel``` and handles the transfer of inputs to the GPU and the results back to the CPU.
 
 ## Citing GRiD
-To cite GRiD in your research, please use the following bibtex for our paper ["GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients"](https://brianplancher.com/publication/GRiD/):
+To cite GRiD in your research, please use the following bibtex for our paper ["GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients"](https://brianplancher.com/publication/grid/):
 ```
 @misc{plancher2021grid,
       title={GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients}, 
