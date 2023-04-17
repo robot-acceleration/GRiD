@@ -39,13 +39,12 @@ To enable GRiD to be used by both expert and novice GPU programmers we provide t
 ## Citing GRiD
 To cite GRiD in your research, please use the following bibtex for our paper ["GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients"](https://brianplancher.com/publication/grid/):
 ```
-@misc{plancher2021grid,
-      title={GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients}, 
-      author={Brian Plancher and Sabrina M. Neuman and Radhika Ghosal and Scott Kuindersma and Vijay Janapa Reddi},
-      year={2021},
-      eprint={2109.06976},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
+@inproceedings{plancher2022grid,
+  title={GRiD: GPU-Accelerated Rigid Body Dynamics with Analytical Gradients}, 
+  author={Brian Plancher and Sabrina M. Neuman and Radhika Ghosal and Scott Kuindersma and Vijay Janapa Reddi},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)}, 
+  year={2022}, 
+  month={May}
 }
 ```
 
